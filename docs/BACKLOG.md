@@ -36,6 +36,8 @@
 | SB-006 | Sprint 6A Dashboard UX | Deliver docs/DASHBOARD_UX.md with wireframes & section models | High | Completed | UX Architect | SB-005 |
 | SB-007 | React UI Integration | Refactor & merge modular React UI components under frontend/src/ | High | Completed | Frontend Lead | SB-006 |
 | SB-008 | Centralized Architecture | Replace hardcoded mock values with API service, client & store | High | Completed | Lead Engineer | SB-007 |
+| SB-009 | Backend Foundation | Establish 12 backend packages under backend/app/ with settings, logging & exceptions | High | Completed | Backend Lead | SB-008 |
+
 
 
 
