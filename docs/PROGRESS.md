@@ -29,11 +29,13 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Integrated and refactored modular React dashboard UI components under `frontend/src/` with 0 TypeScript/Vite build errors ([INTEGRATION_REPORT.md](INTEGRATION_REPORT.md))
 - Built centralized frontend architecture under `frontend/src/` (`services/`, `api/`, `backend/`, `store/`, `constants/`, `utils/`) replacing hardcoded values with state store and API client ([SPRINT_7_REPORT.md](SPRINT_7_REPORT.md))
 - Created professional backend architecture foundation in `backend/app/` across 12 core packages (`core`, `database`, `repositories`, `services`, `schemas`, `models`, `middleware`, `exceptions`, `logging`, `dependencies`, `api`, `api/v1`) ([SPRINT_8_REPORT.md](SPRINT_8_REPORT.md))
+- Implemented PowerShell Git release automation script (`scripts/release.ps1`), user guide ([DEVOPS_AUTOMATION.md](DEVOPS_AUTOMATION.md)), and verified syntax via `Get-Content` ([RELEASE_AUTOMATION_REPORT.md](RELEASE_AUTOMATION_REPORT.md))
 
 ## In Progress
 
-- Sprint 8 review and user approval
+- DevOps release automation review and user approval
 - Preparing feature roadmap for Sprint 9 (SQLite DB schema & Alembic migrations)
+
 
 
 

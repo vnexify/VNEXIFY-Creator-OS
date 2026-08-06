@@ -28,6 +28,8 @@ This changelog captures notable changes, version progression, and release notes 
 - Modularized React UI into clean, reusable components under `frontend/src/` (`components/layout/`, `components/dashboard/`, `components/cards/`, `components/common/`, `hooks/`, `types/`, `pages/`), verified `npm run build:frontend` (0 errors), and published [INTEGRATION_REPORT.md](INTEGRATION_REPORT.md).
 - Replaced hardcoded dashboard values with a centralized frontend architecture (Sprint 7): added `frontend/src/` directories (`services/`, `api/`, `backend/`, `store/`, `constants/`, `utils/`), created `apiService.ts`, `backendClient`, `dashboardStore.tsx`, `app.constants.ts`, and `formatters.ts`, verified `npm run build:frontend` (0 errors), and published [SPRINT_7_REPORT.md](SPRINT_7_REPORT.md).
 - Established professional backend architecture foundation inside `backend/app/` (Sprint 8): created 12 packages (`core`, `database`, `repositories`, `services`, `schemas`, `models`, `middleware`, `exceptions`, `logging`, `dependencies`, `api`, `api/v1`), configured `Settings`, structured logging (`logs/backend.log`), global exception handling, `RequestLoggingMiddleware`, generic CRUD/Service base classes, and published [SPRINT_8_REPORT.md](SPRINT_8_REPORT.md).
+- Implemented Git release automation script (`scripts/release.ps1`), created user guide ([DEVOPS_AUTOMATION.md](DEVOPS_AUTOMATION.md)), verified syntax via `Get-Content`, and published [RELEASE_AUTOMATION_REPORT.md](RELEASE_AUTOMATION_REPORT.md).
+
 
 
 
