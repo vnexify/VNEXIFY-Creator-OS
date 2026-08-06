@@ -32,11 +32,13 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Implemented PowerShell Git release automation script (`scripts/release.ps1`), user guide ([DEVOPS_AUTOMATION.md](DEVOPS_AUTOMATION.md)), and verified syntax via `Get-Content` ([RELEASE_AUTOMATION_REPORT.md](RELEASE_AUTOMATION_REPORT.md))
 - Implemented PowerShell multi-tier build automation script (`scripts/build.ps1`), user guide ([BUILD_AUTOMATION.md](BUILD_AUTOMATION.md)), and verified syntax via `Get-Content` ([BUILD_REPORT.md](BUILD_REPORT.md))
 - Implemented PowerShell 13-point health diagnostic script (`scripts/health.ps1`), user guide ([HEALTH_AUTOMATION.md](HEALTH_AUTOMATION.md)), and verified syntax via `Get-Content` ([HEALTH_REPORT.md](HEALTH_REPORT.md))
+- Resolved false-negative node_modules dependency check in `scripts/build.ps1` and `scripts/health.ps1` with dynamic project workspace detection ([BUG_FIX_REPORT.md](BUG_FIX_REPORT.md))
 
 ## In Progress
 
-- DevOps health automation review and user approval
+- DevOps bug fix review and user approval
 - Preparing feature roadmap for Sprint 9 (SQLite DB schema & Alembic migrations)
+
 
 
 

@@ -40,6 +40,8 @@
 | SB-010 | Release Automation | Implement scripts/release.ps1 PowerShell automation & docs/DEVOPS_AUTOMATION.md | High | Completed | DevOps Engineer | SB-009 |
 | SB-011 | Build Automation | Implement scripts/build.ps1 PowerShell multi-tier verification & docs/BUILD_AUTOMATION.md | High | Completed | DevOps Engineer | SB-010 |
 | SB-012 | Health Automation | Implement scripts/health.ps1 13-point system diagnostic script & docs/HEALTH_AUTOMATION.md | High | Completed | DevOps Engineer | SB-011 |
+| SB-013 | Workspace Dependency Bug Fix | Update build.ps1 & health.ps1 to dynamically detect npm workspace dependencies & docs/BUG_FIX_REPORT.md | High | Completed | DevOps Engineer | SB-012 |
+
 
 
 

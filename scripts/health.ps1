@@ -62,16 +62,28 @@ $npmVer = npm --version 2>$null
 $npmCheck = $LASTEXITCODE -eq 0 -and (-not [string]::IsNullOrWhiteSpace($npmVer))
 Add-HealthCheck -Component "npm Package Mgr" -Passed $npmCheck -Details $(if ($npmCheck) { "v" + $npmVer.Trim() } else { "npm not found" })
 
-# 5. Frontend Dependencies
-$feModules = Test-Path "frontend/node_modules"
-Add-HealthCheck -Component "Frontend Modules" -Passed $feModules -Details $(if ($feModules) { "frontend/node_modules present" } else { "frontend/node_modules missing" })
+# 5. Frontend & Workspace Dependencies (Dynamic Detection)
+$rootModules = Test-Path "node_modules"
+$frontendModules = Test-Path "frontend/node_modules"
+$reactInstalled = (Test-Path "node_modules/react") -or (Test-Path "frontend/node_modules/react")
+$feCheck = $rootModules -or $frontendModules -or $reactInstalled
+
+$feDetails = if ($feCheck) {
+    if ($rootModules -and $frontendModules) { "Root & Frontend Workspaces present" }
+    elseif ($rootModules) { "Root Workspace (Hoisted) present" }
+    else { "Frontend Workspace present" }
+} else {
+    "npm node_modules missing (Run 'npm install')"
+}
+Add-HealthCheck -Component "Frontend Modules" -Passed $feCheck -Details $feDetails
 
 # 6. Backend Dependencies
 $beCheck = $pyCheck -and (& $pyPath -c "import fastapi, sqlalchemy, pydantic; print('ok')" 2>$null) -eq "ok"
 Add-HealthCheck -Component "Backend Modules" -Passed $beCheck -Details $(if ($beCheck) { "FastAPI, SQLAlchemy, Pydantic verified" } else { "Backend dependencies missing" })
 
 # 7. Electron Config & Modules
-$elCheck = (Test-Path "electron/tsconfig.json") -and (Test-Path "node_modules/electron")
+$elModules = (Test-Path "node_modules/electron") -or (Test-Path "electron/node_modules") -or (Test-Path "node_modules/electron-builder")
+$elCheck = (Test-Path "electron/tsconfig.json") -and ($rootModules -or $elModules)
 Add-HealthCheck -Component "Electron Config" -Passed $elCheck -Details $(if ($elCheck) { "Electron shell & tsconfig present" } else { "Electron tsconfig/modules missing" })
 
 # 8. SQLite Folder

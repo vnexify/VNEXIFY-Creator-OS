@@ -11,16 +11,16 @@
 
 - [1. Overview](#1-overview)
 - [2. Multi-Tier Verification Steps](#2-multi-tier-verification-steps)
-- [3. Usage & Command Examples](#3-usage--command-examples)
-- [4. Expected Console Output](#4-expected-console-output)
-- [5. Error Handling & Exit Codes](#5-error-handling--exit-codes)
-- [6. Maintenance & CI Integration](#6-maintenance--ci-integration)
+- [3. Dynamic Dependency Detection](#3-dynamic-dependency-detection)
+- [4. Usage & Command Examples](#4-usage--command-examples)
+- [5. Expected Console Output](#5-expected-console-output)
+- [6. Error Handling & Exit Codes](#6-error-handling--exit-codes)
 
 ---
 
 # 1. Overview
 
-The `scripts/build.ps1` script provides a unified build automation and verification system for **VNEXIFY Creator OS**. It validates system dependencies, verifies environment roots, compiles the React frontend bundle, typechecks the Electron desktop shell, and tests FastAPI backend module importability.
+The `scripts/build.ps1` script provides a unified build automation and verification system for **VNEXIFY Creator OS**. It validates system dependencies, dynamically detects npm workspace node_modules configurations, compiles the React frontend bundle, typechecks the Electron desktop shell, and tests FastAPI backend module importability.
 
 ---
 
@@ -33,7 +33,9 @@ The `scripts/build.ps1` script provides a unified build automation and verificat
           │
           ├── [Step 3] Verify Python Virtual Environment (.venv/Scripts/python.exe)
           │
-          ├── [Step 4] Verify npm Node Modules (node_modules, frontend/node_modules)
+          ├── [Step 4] Verify npm Dependencies Dynamically (Root / Frontend / Hoisted)
+          │     ├── [Missing Everywhere] ➔ Print "[FAIL] npm node_modules missing" ➔ Exit 1
+          │     └── [Detected] ➔ Print "npm Dependencies: PASS"
           │
           ├── [Step 5] Build React Frontend (npm run build:frontend)
           │     ├── [FAIL] ➔ Stop immediately, Exit $LASTEXITCODE
@@ -52,17 +54,27 @@ The `scripts/build.ps1` script provides a unified build automation and verificat
 
 ---
 
-# 3. Usage & Command Examples
+# 3. Dynamic Dependency Detection
 
-### Executing Build Automation
-From PowerShell terminal at the repository root:
+`scripts/build.ps1` dynamically detects dependency installation across three supported project configurations:
+1. **Root Workspace**: `node_modules/` (npm hoisted).
+2. **Frontend Workspace**: `frontend/node_modules/`.
+3. **Installed Packages**: `node_modules/react` or `frontend/node_modules/react`.
+
+If dependencies exist in any valid location, the build proceeds.
+
+---
+
+# 4. Usage & Command Examples
+
+From PowerShell terminal at repository root:
 ```powershell
 .\scripts\build.ps1
 ```
 
 ---
 
-# 4. Expected Console Output
+# 5. Expected Console Output
 
 ```text
 ====================================================
@@ -77,6 +89,7 @@ Node.js: v20.11.0 | npm: 10.2.4
 Python Venv: Python 3.14.4
 
 [4/7] Verifying npm dependencies...
+npm Dependencies: PASS (Root & Frontend Workspaces)
 
 [5/7] Building React Frontend (npm run build:frontend)...
 > tsc && vite build
@@ -97,18 +110,10 @@ Backend PASS
 
 ---
 
-# 5. Error Handling & Exit Codes
+# 6. Error Handling & Exit Codes
 
 | Exit Code | Cause | Behavior |
 | :--- | :--- | :--- |
-| `0` | All 7 verification & build stages passed | Prints `Build Successful!` and exits cleanly. |
-| `1` | Invalid project directory | Prints `[ERROR] Current directory is not the VNEXIFY Creator OS project root.` |
-| `1` | Missing Node.js or Python `.venv` | Prints toolchain missing error message and halts. |
-| `$LASTEXITCODE` | Frontend, Electron, or Backend step fails | Prints `[FAIL] ... Failed.` and halts execution immediately. |
-
----
-
-# 6. Maintenance & CI Integration
-
-> [!TIP]
-> Run `.\scripts\build.ps1` locally prior to submitting pull requests or running `.\scripts\release.ps1`.
+| `0` | All verification & build stages passed | Prints `Build Successful!` and exits 0. |
+| `1` | Dependencies missing everywhere | Prints `[FAIL] npm node_modules directory missing. Please run 'npm install'.` |
+| `$LASTEXITCODE` | Build failure in Frontend, Electron, or Backend | Halts immediately without hiding native error trace. |

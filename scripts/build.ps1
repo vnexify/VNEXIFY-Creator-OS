@@ -7,7 +7,7 @@
     1. Verifies project root environment structure.
     2. Verifies Node.js & npm toolset.
     3. Verifies Python virtual environment (.venv).
-    4. Verifies npm dependencies.
+    4. Dynamically detects npm dependencies (Root workspace, Frontend workspace, or Hoisted npm workspaces).
     5. Builds React frontend (npm run build:frontend).
     6. Compiles Electron TypeScript (npx tsc --project electron/tsconfig.json).
     7. Verifies FastAPI backend imports (from backend.app.main import app).
@@ -52,10 +52,17 @@ if (-not (Test-Path $venvPython)) {
 $pyVersion = & $venvPython --version 2>&1
 Write-Host "Python Venv: $pyVersion" -ForegroundColor Gray
 
-# 4. Verify npm dependencies
+# 4. Verify npm dependencies dynamically across workspace configurations
 Write-Host "`n[4/7] Verifying npm dependencies..." -ForegroundColor Yellow
-if (-not (Test-Path "node_modules") -or -not (Test-Path "frontend/node_modules")) {
-    Write-Host "[ERROR] npm node_modules directory missing. Please run 'npm install'." -ForegroundColor Red
+$rootModules = Test-Path "node_modules"
+$frontendModules = Test-Path "frontend/node_modules"
+$reactInstalled = (Test-Path "node_modules/react") -or (Test-Path "frontend/node_modules/react")
+
+if ($rootModules -or $frontendModules -or $reactInstalled) {
+    $detectedLocation = if ($rootModules -and $frontendModules) { "Root & Frontend Workspaces" } elseif ($rootModules) { "Root Workspace (Hoisted)" } else { "Frontend Workspace" }
+    Write-Host "npm Dependencies: PASS ($detectedLocation)" -ForegroundColor Gray
+} else {
+    Write-Host "[FAIL] npm node_modules directory missing. Please run 'npm install'." -ForegroundColor Red
     exit 1
 }
 

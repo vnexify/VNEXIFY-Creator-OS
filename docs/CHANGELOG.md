@@ -31,6 +31,8 @@ This changelog captures notable changes, version progression, and release notes 
 - Implemented Git release automation script (`scripts/release.ps1`), created user guide ([DEVOPS_AUTOMATION.md](DEVOPS_AUTOMATION.md)), verified syntax via `Get-Content`, and published [RELEASE_AUTOMATION_REPORT.md](RELEASE_AUTOMATION_REPORT.md).
 - Implemented multi-tier build automation script (`scripts/build.ps1`), created user guide ([BUILD_AUTOMATION.md](BUILD_AUTOMATION.md)), verified syntax via `Get-Content`, and published [BUILD_REPORT.md](BUILD_REPORT.md).
 - Implemented system health diagnostic script (`scripts/health.ps1`), created user guide ([HEALTH_AUTOMATION.md](HEALTH_AUTOMATION.md)), verified syntax via `Get-Content`, and published [HEALTH_REPORT.md](HEALTH_REPORT.md).
+- Resolved false-negative dependency check bug in `scripts/build.ps1` and `scripts/health.ps1` by adding dynamic project configuration detection across root, frontend, and hoisted npm workspaces ([BUG_FIX_REPORT.md](BUG_FIX_REPORT.md)).
+
 
 
 
