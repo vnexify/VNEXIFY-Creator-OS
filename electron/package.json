@@ -1,0 +1,40 @@
+{
+  "name": "vnexify-creator-os-electron",
+  "private": true,
+  "version": "0.0.1",
+  "description": "VNEXIFY Creator OS Desktop Shell Container",
+  "author": "VNEXIFY Team",
+  "main": "dist/main.js",
+  "scripts": {
+    "compile": "tsc",
+    "dev": "tsc && electron .",
+    "build": "tsc && electron-builder"
+  },
+  "build": {
+    "appId": "com.vnexify.creator-os",
+    "productName": "VNEXIFY Creator OS",
+    "electronVersion": "26.6.10",
+    "directories": {
+      "output": "../exports/dist"
+    },
+    "files": [
+      "dist/**/*",
+      "../frontend/dist/**/*"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "linux": {
+      "target": "AppImage"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.12",
+    "electron": "26.6.10",
+    "electron-builder": "^24.13.3",
+    "typescript": "^5.5.4"
+  }
+}

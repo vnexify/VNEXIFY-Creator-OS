@@ -1,0 +1,9 @@
+export const APP_CONSTANTS = {
+  APP_NAME: 'VNEXIFY Creator OS',
+  VERSION: 'v0.1',
+  DEFAULT_BACKEND_URL: 'http://127.0.0.1:8000',
+  HEALTH_ENDPOINT: '/health',
+  API_V1_PREFIX: '/api/v1',
+  HEALTH_POLL_INTERVAL_MS: 15000,
+  REQUEST_TIMEOUT_MS: 5000,
+} as const

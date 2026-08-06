@@ -1,0 +1,18 @@
+{
+  "name": "vnexify-creator-os",
+  "private": true,
+  "version": "0.1.0",
+  "description": "VNEXIFY Creator OS desktop scaffold with React + TypeScript + Vite frontend, Electron shell, and Python FastAPI backend.",
+  "scripts": {
+    "dev:frontend": "npm --workspace frontend run dev",
+    "dev:electron": "npm --workspace electron run dev",
+    "dev:backend": ".venv\\Scripts\\python.exe -m uvicorn backend.app.main:app --reload --port 8000",
+    "build:frontend": "npm --workspace frontend run build",
+    "build:electron": "npm --workspace electron run build",
+    "build": "npm run build:frontend && npm run build:electron"
+  },
+  "workspaces": [
+    "frontend",
+    "electron"
+  ]
+}
