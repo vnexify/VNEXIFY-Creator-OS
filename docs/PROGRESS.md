@@ -27,11 +27,13 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Verified end-to-end communication stack (Electron -> React -> FastAPI backend) (Sprint 5)
 - Completed Dashboard UX Architecture specification ([DASHBOARD_UX.md](DASHBOARD_UX.md)) detailing layout grid, spacing, ASCII wireframes, navigation tree, and 10 core section models (Sprint 6A)
 - Integrated and refactored modular React dashboard UI components under `frontend/src/` with 0 TypeScript/Vite build errors ([INTEGRATION_REPORT.md](INTEGRATION_REPORT.md))
+- Built centralized frontend architecture under `frontend/src/` (`services/`, `api/`, `backend/`, `store/`, `constants/`, `utils/`) replacing hardcoded values with state store and API client ([SPRINT_7_REPORT.md](SPRINT_7_REPORT.md))
 
 ## In Progress
 
-- UI Component integration review and user approval
-- Preparing feature roadmap for Sprint 7 (SQLite DB & Alembic migrations)
+- Sprint 7 review and user approval
+- Preparing feature roadmap for Sprint 8 (SQLite DB & Alembic migrations)
+
 
 
 

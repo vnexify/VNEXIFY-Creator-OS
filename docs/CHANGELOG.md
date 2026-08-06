@@ -26,6 +26,8 @@ This changelog captures notable changes, version progression, and release notes 
 - Verified end-to-end communication stack across Electron desktop shell, React frontend, and FastAPI backend.
 - Published comprehensive Dashboard UX Architecture specification ([DASHBOARD_UX.md](DASHBOARD_UX.md)) detailing window layout, header, left sidebar, main workspace, right panel, status bar, navigation tree, spacing grid, ASCII wireframes, and 10 core dashboard sections (Sprint 6A).
 - Modularized React UI into clean, reusable components under `frontend/src/` (`components/layout/`, `components/dashboard/`, `components/cards/`, `components/common/`, `hooks/`, `types/`, `pages/`), verified `npm run build:frontend` (0 errors), and published [INTEGRATION_REPORT.md](INTEGRATION_REPORT.md).
+- Replaced hardcoded dashboard values with a centralized frontend architecture (Sprint 7): added `frontend/src/` directories (`services/`, `api/`, `backend/`, `store/`, `constants/`, `utils/`), created `apiService.ts`, `backendClient`, `dashboardStore.tsx`, `app.constants.ts`, and `formatters.ts`, verified `npm run build:frontend` (0 errors), and published [SPRINT_7_REPORT.md](SPRINT_7_REPORT.md).
+
 
 
 
