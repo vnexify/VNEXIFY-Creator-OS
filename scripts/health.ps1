@@ -42,8 +42,19 @@ function Add-HealthCheck {
     }
 }
 
-# 1. Git repository
-$gitCheck = (git rev-parse --is-inside-work-tree 2>$null) -eq "true"
+# 1. Git repository (Safe command discovery)
+$gitExe = Get-Command "git" -ErrorAction SilentlyContinue | Select-Object -ExpandProperty Source
+if (-not $gitExe -and (Test-Path "C:\Program Files\Git\cmd\git.exe")) {
+    $gitExe = "C:\Program Files\Git\cmd\git.exe"
+}
+
+$gitCheck = [bool](Test-Path ".git")
+if ($gitExe) {
+    try {
+        $res = & $gitExe rev-parse --is-inside-work-tree 2>$null
+        if ($res -eq "true") { $gitCheck = $true }
+    } catch {}
+}
 Add-HealthCheck -Component "Git Repository" -Passed $gitCheck -Details $(if ($gitCheck) { "Git repository detected" } else { "Missing .git repository" })
 
 # 2. Python

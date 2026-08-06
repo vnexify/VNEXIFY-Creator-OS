@@ -16,9 +16,12 @@ build/
 
 # Python
 __pycache__/
+*.pyc
 *.py[cod]
 *.pyo
 *.pyd
+.pytest_cache/
+.mypy_cache/
 *.sqlite3
 *.db
 backend/db/
@@ -28,6 +31,24 @@ venv/
 # Environment files
 .env
 .env.*
+!.env.example
+
+# Certificates & Private Keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+
+# Secrets & Credentials
+credentials.json
+service-account.json
+firebase-adminsdk.json
+secret.json
+secrets.json
+token.json
+oauth.json
 
 # Logs
 logs/
@@ -37,6 +58,7 @@ logs/
 .DS_Store
 Thumbs.db
 
-# IDE
+# IDE & Editor
 .vscode/
+.vscode/settings.json
 .idea/

@@ -41,6 +41,16 @@
 | SB-011 | Build Automation | Implement scripts/build.ps1 PowerShell multi-tier verification & docs/BUILD_AUTOMATION.md | High | Completed | DevOps Engineer | SB-010 |
 | SB-012 | Health Automation | Implement scripts/health.ps1 13-point system diagnostic script & docs/HEALTH_AUTOMATION.md | High | Completed | DevOps Engineer | SB-011 |
 | SB-013 | Workspace Dependency Bug Fix | Update build.ps1 & health.ps1 to dynamically detect npm workspace dependencies & docs/BUG_FIX_REPORT.md | High | Completed | DevOps Engineer | SB-012 |
+| SB-014 | Official Project Constitution | Draft docs/PROJECT_RULES.md establishing 22 binding governance rules & docs/PROJECT_RULES_REPORT.md | High | Completed | Chief Software Architect | SB-013 |
+| SB-015 | Official AI Operating Manual | Draft docs/AI_INSTRUCTIONS.md establishing AI role specializations, decision matrix & workflow & docs/AI_INSTRUCTIONS_REPORT.md | High | Completed | Chief AI Systems Architect | SB-014 |
+| SB-016 | Official GitHub Security Policy | Draft docs/GITHUB_SECURITY_POLICY.md enforcing 10 non-negotiable rules, .gitignore & .env.example & docs/SECURITY_POLICY_REPORT.md | High | Completed | Security Architect | SB-015 |
+| SB-017 | Final DevSecOps Security Automation | Implement security_scan.ps1, gitignore_audit.ps1 & pre_release_check.ps1 security pipeline & docs/SECURITY_AUTOMATION_REPORT.md | High | Completed | Senior DevSecOps Engineer | SB-016 |
+| SB-018 | DevSecOps Security Bug Fix | Replace invalid Where-Path with native Where-Object cmdlet, verify full pipeline execution & docs/SECURITY_BUG_FIX_REPORT.md | High | Completed | Senior DevSecOps Engineer | SB-017 |
+
+
+
+
+
 
 
 

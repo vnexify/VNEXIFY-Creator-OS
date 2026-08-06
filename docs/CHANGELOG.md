@@ -32,6 +32,16 @@ This changelog captures notable changes, version progression, and release notes 
 - Implemented multi-tier build automation script (`scripts/build.ps1`), created user guide ([BUILD_AUTOMATION.md](BUILD_AUTOMATION.md)), verified syntax via `Get-Content`, and published [BUILD_REPORT.md](BUILD_REPORT.md).
 - Implemented system health diagnostic script (`scripts/health.ps1`), created user guide ([HEALTH_AUTOMATION.md](HEALTH_AUTOMATION.md)), verified syntax via `Get-Content`, and published [HEALTH_REPORT.md](HEALTH_REPORT.md).
 - Resolved false-negative dependency check bug in `scripts/build.ps1` and `scripts/health.ps1` by adding dynamic project configuration detection across root, frontend, and hoisted npm workspaces ([BUG_FIX_REPORT.md](BUG_FIX_REPORT.md)).
+- Authored the official Project Constitution ([PROJECT_RULES.md](PROJECT_RULES.md)) establishing 22 binding architectural, development, coding, security, AI safety, and sprint governance rules ([PROJECT_RULES_REPORT.md](PROJECT_RULES_REPORT.md)).
+- Authored the official AI Operating Manual ([AI_INSTRUCTIONS.md](AI_INSTRUCTIONS.md)) detailing role specializations, authority matrices, and collaboration workflows for ChatGPT, Antigravity, AI Studio, Stitch, Ollama, Copilot, Claude, Gemini, Cursor, Windsurf, and Codex ([AI_INSTRUCTIONS_REPORT.md](AI_INSTRUCTIONS_REPORT.md)).
+- Implemented the official GitHub Security Policy ([GITHUB_SECURITY_POLICY.md](GITHUB_SECURITY_POLICY.md)) enforcing 10 non-negotiable security rules, comprehensive `.gitignore` exclusions, `.env.example` placeholders, and automated AI stop-gate protection ([SECURITY_POLICY_REPORT.md](SECURITY_POLICY_REPORT.md)).
+- Implemented the final DevSecOps Security Automation Layer (`security_scan.ps1`, `gitignore_audit.ps1`, `pre_release_check.ps1`), user guides ([SECURITY_AUTOMATION.md](SECURITY_AUTOMATION.md), [PRE_RELEASE_WORKFLOW.md](PRE_RELEASE_WORKFLOW.md)), and published [SECURITY_AUTOMATION_REPORT.md](SECURITY_AUTOMATION_REPORT.md).
+- Resolved invalid `Where-Path` PowerShell cmdlet bug in `scripts/security_scan.ps1`, added safe Git binary discovery fallback in `scripts/health.ps1`, verified clean execution across all DevSecOps scripts, and published [SECURITY_BUG_FIX_REPORT.md](SECURITY_BUG_FIX_REPORT.md).
+
+
+
+
+
 
 
 
