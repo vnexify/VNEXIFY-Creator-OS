@@ -30,11 +30,15 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Built centralized frontend architecture under `frontend/src/` (`services/`, `api/`, `backend/`, `store/`, `constants/`, `utils/`) replacing hardcoded values with state store and API client ([SPRINT_7_REPORT.md](SPRINT_7_REPORT.md))
 - Created professional backend architecture foundation in `backend/app/` across 12 core packages (`core`, `database`, `repositories`, `services`, `schemas`, `models`, `middleware`, `exceptions`, `logging`, `dependencies`, `api`, `api/v1`) ([SPRINT_8_REPORT.md](SPRINT_8_REPORT.md))
 - Implemented PowerShell Git release automation script (`scripts/release.ps1`), user guide ([DEVOPS_AUTOMATION.md](DEVOPS_AUTOMATION.md)), and verified syntax via `Get-Content` ([RELEASE_AUTOMATION_REPORT.md](RELEASE_AUTOMATION_REPORT.md))
+- Implemented PowerShell multi-tier build automation script (`scripts/build.ps1`), user guide ([BUILD_AUTOMATION.md](BUILD_AUTOMATION.md)), and verified syntax via `Get-Content` ([BUILD_REPORT.md](BUILD_REPORT.md))
+- Implemented PowerShell 13-point health diagnostic script (`scripts/health.ps1`), user guide ([HEALTH_AUTOMATION.md](HEALTH_AUTOMATION.md)), and verified syntax via `Get-Content` ([HEALTH_REPORT.md](HEALTH_REPORT.md))
 
 ## In Progress
 
-- DevOps release automation review and user approval
+- DevOps health automation review and user approval
 - Preparing feature roadmap for Sprint 9 (SQLite DB schema & Alembic migrations)
+
+
 
 
 
