@@ -53,6 +53,8 @@
 | SB-023 | Sprint 10 Database Infrastructure Foundation | Implement SQLAlchemy 2.x engine, SessionLocal factory, DatabaseSessionManager, connection ping, initializer, health checker, Alembic env & docs/SPRINT_10_REPORT.md | High | Completed | Lead Database Architect | SB-022 |
 | SB-024 | Sprint 11 SQLAlchemy 2.x ORM Models | Implement BaseEntity & 16 ORM models (User, Workspace, Project, Content, Media, etc.), verify 17 metadata tables, mappers & docs/SPRINT_11_REPORT.md | High | Completed | Lead Database Architect | SB-023 |
 | SB-025 | Sprint 12 Data Access Repository Layer | Implement generic BaseRepository[ModelType] & 16 domain repositories (UserRepository, WorkspaceRepository, etc.), verify instantiation & docs/SPRINT_12_REPORT.md | High | Completed | Lead Backend Architect | SB-024 |
+| SB-026 | Sprint 13 Business Service Layer | Implement generic BaseService[ModelType] & 16 domain services (UserService, WorkspaceService, etc.), verify DI & docs/SPRINT_13_REPORT.md | High | Completed | Lead Backend Architect | SB-025 |
+
 
 
 
