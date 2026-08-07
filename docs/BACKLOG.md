@@ -52,6 +52,8 @@
 | SB-022 | Enterprise GitHub Actions CI/CD Pipeline | Implement .github/workflows/ci.yml 11-stage automated pipeline, docs/GITHUB_ACTIONS.md, docs/CI_PIPELINE.md & docs/CI_REPORT.md | High | Completed | Principal DevOps & GitHub Actions Architect | SB-021 |
 | SB-023 | Sprint 10 Database Infrastructure Foundation | Implement SQLAlchemy 2.x engine, SessionLocal factory, DatabaseSessionManager, connection ping, initializer, health checker, Alembic env & docs/SPRINT_10_REPORT.md | High | Completed | Lead Database Architect | SB-022 |
 | SB-024 | Sprint 11 SQLAlchemy 2.x ORM Models | Implement BaseEntity & 16 ORM models (User, Workspace, Project, Content, Media, etc.), verify 17 metadata tables, mappers & docs/SPRINT_11_REPORT.md | High | Completed | Lead Database Architect | SB-023 |
+| SB-025 | Sprint 12 Data Access Repository Layer | Implement generic BaseRepository[ModelType] & 16 domain repositories (UserRepository, WorkspaceRepository, etc.), verify instantiation & docs/SPRINT_12_REPORT.md | High | Completed | Lead Backend Architect | SB-024 |
+
 
 
 
