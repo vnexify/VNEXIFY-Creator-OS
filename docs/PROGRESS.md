@@ -46,11 +46,15 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Authored Sprint 11 SQLAlchemy 2.x ORM Models (`backend/app/models/`) with `BaseEntity` abstract base class and 16 model entities, verified 17 metadata tables, validated ORM mappers, verified 0 physical tables created, and published [SPRINT_11_REPORT.md](SPRINT_11_REPORT.md)
 - Implemented Sprint 12 Data Access Repository Layer (`backend/app/repositories/`) featuring generic `BaseRepository[ModelType]` and 16 domain repositories, verified clean instantiation and project build, and published [SPRINT_12_REPORT.md](SPRINT_12_REPORT.md)
 - Created Sprint 13 Business Service Layer (`backend/app/services/`) featuring generic `BaseService[ModelType]` and 16 domain services with constructor dependency injection, verified clean instantiation and project build, and published [SPRINT_13_REPORT.md](SPRINT_13_REPORT.md)
+- Authored Sprint 14 Schema DTO Layer (`backend/app/schemas/`) featuring Pydantic v2 `BaseSchema` and 16 domain modules with 5-tier DTO suites, verified validation, ORM mode parsing, and clean project build, and published [SPRINT_14_REPORT.md](SPRINT_14_REPORT.md)
+- Created Sprint 15 FastAPI REST API Layer (`backend/app/api/`) featuring 16 domain REST routers (`/api/v1/...`), OpenAPI 37-path schema generation, dependency injection, multi-tier build & security verification, and published [SPRINT_15_REPORT.md](SPRINT_15_REPORT.md)
 
 ## In Progress
 
-- Sprint 13 Business Service Layer review and user approval before proceeding to Sprint 14
-- Preparing feature roadmap for Sprint 14 (Alembic Initial Database Migration Revision)
+- Sprint 15 FastAPI REST API Layer review and user approval before proceeding to Sprint 16
+- Preparing feature roadmap for Sprint 16 (Alembic Initial Database Migration Revision)
+
+
 
 
 

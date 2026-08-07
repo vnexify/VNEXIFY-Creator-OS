@@ -54,6 +54,10 @@
 | SB-024 | Sprint 11 SQLAlchemy 2.x ORM Models | Implement BaseEntity & 16 ORM models (User, Workspace, Project, Content, Media, etc.), verify 17 metadata tables, mappers & docs/SPRINT_11_REPORT.md | High | Completed | Lead Database Architect | SB-023 |
 | SB-025 | Sprint 12 Data Access Repository Layer | Implement generic BaseRepository[ModelType] & 16 domain repositories (UserRepository, WorkspaceRepository, etc.), verify instantiation & docs/SPRINT_12_REPORT.md | High | Completed | Lead Backend Architect | SB-024 |
 | SB-026 | Sprint 13 Business Service Layer | Implement generic BaseService[ModelType] & 16 domain services (UserService, WorkspaceService, etc.), verify DI & docs/SPRINT_13_REPORT.md | High | Completed | Lead Backend Architect | SB-025 |
+| SB-027 | Sprint 14 Schema DTO Layer | Implement Pydantic v2 BaseSchema & 16 domain schema modules (User, Workspace, Content, etc.), verify validation & docs/SPRINT_14_REPORT.md | High | Completed | Lead Backend Architect | SB-026 |
+| SB-028 | Sprint 15 FastAPI REST API Layer | Implement 16 domain REST routers under /api/v1/ (users, workspaces, contents, etc.), verify OpenAPI 37 paths & docs/SPRINT_15_REPORT.md | High | Completed | Lead Backend API Architect | SB-027 |
+
+
 
 
 
