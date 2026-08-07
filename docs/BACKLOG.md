@@ -49,6 +49,12 @@
 | SB-019 | Enterprise Grade Git Security Upgrade | Install automated Git hooks (pre-commit & pre-push), 17 secret pattern scanners with Shannon entropy analysis, github_security_check.ps1, rotate_secret_check.ps1, security_report.ps1 & docs/SECURITY_HARDENING_REPORT.md | High | Completed | Principal DevSecOps Engineer | SB-018 |
 | SB-020 | Gitleaks Engine Integration | Install standalone Gitleaks v8.18.4, create run_gitleaks.ps1, .gitleaks.toml, 6-stage pre-release pipeline & docs/ENTERPRISE_SECURITY_REPORT.md | High | Completed | Principal DevSecOps Engineer | SB-019 |
 | SB-021 | Security Validation Defect Fix | Upgrade security_scan.ps1 to inspect git diff --cached, match variable names & test keys, verify commit block & docs/SECURITY_VALIDATION_REPORT.md | High | Completed | Principal DevSecOps Engineer | SB-020 |
+| SB-022 | Enterprise GitHub Actions CI/CD Pipeline | Implement .github/workflows/ci.yml 11-stage automated pipeline, docs/GITHUB_ACTIONS.md, docs/CI_PIPELINE.md & docs/CI_REPORT.md | High | Completed | Principal DevOps & GitHub Actions Architect | SB-021 |
+| SB-023 | Sprint 10 Database Infrastructure Foundation | Implement SQLAlchemy 2.x engine, SessionLocal factory, DatabaseSessionManager, connection ping, initializer, health checker, Alembic env & docs/SPRINT_10_REPORT.md | High | Completed | Lead Database Architect | SB-022 |
+| SB-024 | Sprint 11 SQLAlchemy 2.x ORM Models | Implement BaseEntity & 16 ORM models (User, Workspace, Project, Content, Media, etc.), verify 17 metadata tables, mappers & docs/SPRINT_11_REPORT.md | High | Completed | Lead Database Architect | SB-023 |
+
+
+
 
 
 

@@ -1,0 +1,9 @@
+# VNEXIFY Creator OS Alembic Database Migrations
+
+This directory contains Alembic database migration scripts for VNEXIFY Creator OS.
+
+## Directory Structure
+
+- `env.py`: Python migration script managing database engine configuration, metadata, and migration execution.
+- `script.py.mako`: Template file for generating new database migration revisions.
+- `versions/`: Directory storing generated migration revision scripts.

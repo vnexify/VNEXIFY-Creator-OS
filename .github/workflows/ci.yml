@@ -1,0 +1,128 @@
+name: Enterprise DevSecOps CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+      - 'release/**'
+  pull_request:
+    branches:
+      - main
+      - master
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  ci-pipeline:
+    name: VNEXIFY Creator OS Multi-Stage CI Pipeline
+    runs-on: windows-latest
+
+    steps:
+      # Stage 1: Checkout Repository
+      - name: Stage 1 - Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Stage 2: Setup Node.js Environment
+      - name: Stage 2 - Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      # Stage 3: Setup Python Environment
+      - name: Stage 3 - Setup Python Environment
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Stage 4: Install npm Dependencies
+      - name: Stage 4 - Install npm Dependencies
+        shell: powershell
+        run: |
+          Write-Host "Installing npm dependencies across workspace..." -ForegroundColor Cyan
+          npm ci
+
+      # Stage 5: Install Python Dependencies
+      - name: Stage 5 - Install Python Dependencies
+        shell: powershell
+        run: |
+          Write-Host "Configuring Python virtual environment and installing backend requirements..." -ForegroundColor Cyan
+          python -m venv .venv
+          .\.venv\Scripts\Activate.ps1
+          python -m pip install --upgrade pip
+          pip install -r backend/requirements.txt
+
+      # Stage 6: Security Scan
+      - name: Stage 6 - Security Secret & Entropy Scan (security_scan.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\security_scan.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ Security Passed" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
+
+      # Stage 7: GitIgnore Audit
+      - name: Stage 7 - GitIgnore Security Audit (gitignore_audit.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\gitignore_audit.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ GitIgnore Passed" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
+
+      # Stage 8: GitHub Security Check
+      - name: Stage 8 - GitHub Security Audit Check (github_security_check.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\github_security_check.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ GitHub Security Passed" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
+
+      # Stage 9: Gitleaks Secret Detector
+      - name: Stage 9 - Gitleaks Secret Detection (run_gitleaks.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\run_gitleaks.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ Gitleaks Passed" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
+
+      # Stage 10: System Health Diagnostics
+      - name: Stage 10 - System Health Diagnostics (health.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\health.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ Health Passed" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
+
+      # Stage 11: Multi-Tier Build Verification
+      - name: Stage 11 - Multi-Tier Build Verification (build.ps1)
+        shell: powershell
+        run: |
+          powershell -ExecutionPolicy Bypass -File .\scripts\build.ps1
+          if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ Build Passed" -ForegroundColor Green
+            Write-Host "`n====================================================" -ForegroundColor Green
+            Write-Host "                    CI SUCCESS                      " -ForegroundColor Green
+            Write-Host "====================================================" -ForegroundColor Green
+          } else {
+            exit $LASTEXITCODE
+          }
