@@ -37,6 +37,12 @@ This changelog captures notable changes, version progression, and release notes 
 - Implemented the official GitHub Security Policy ([GITHUB_SECURITY_POLICY.md](GITHUB_SECURITY_POLICY.md)) enforcing 10 non-negotiable security rules, comprehensive `.gitignore` exclusions, `.env.example` placeholders, and automated AI stop-gate protection ([SECURITY_POLICY_REPORT.md](SECURITY_POLICY_REPORT.md)).
 - Implemented the final DevSecOps Security Automation Layer (`security_scan.ps1`, `gitignore_audit.ps1`, `pre_release_check.ps1`), user guides ([SECURITY_AUTOMATION.md](SECURITY_AUTOMATION.md), [PRE_RELEASE_WORKFLOW.md](PRE_RELEASE_WORKFLOW.md)), and published [SECURITY_AUTOMATION_REPORT.md](SECURITY_AUTOMATION_REPORT.md).
 - Resolved invalid `Where-Path` PowerShell cmdlet bug in `scripts/security_scan.ps1`, added safe Git binary discovery fallback in `scripts/health.ps1`, verified clean execution across all DevSecOps scripts, and published [SECURITY_BUG_FIX_REPORT.md](SECURITY_BUG_FIX_REPORT.md).
+- Upgraded project to Enterprise Grade Git Security: installed automated `.git/hooks/pre-commit` and `.git/hooks/pre-push` gates via `install_git_hooks.ps1`, expanded secret scanner for 17 token/credential patterns with Shannon entropy analysis (`security_scan.ps1`), created `github_security_check.ps1`, `rotate_secret_check.ps1`, `security_report.ps1`, published user guides ([GIT_HOOKS.md](GIT_HOOKS.md), [ENTERPRISE_SECURITY.md](ENTERPRISE_SECURITY.md)), and published [SECURITY_HARDENING_REPORT.md](SECURITY_HARDENING_REPORT.md).
+- Integrated Gitleaks security engine: created automated installer (`install_gitleaks.ps1`), secret detector (`run_gitleaks.ps1`), `.gitleaks.toml` configuration, upgraded pre-release pipeline to 6 stages (`pre_release_check.ps1`), published user guide ([GITLEAKS.md](GITLEAKS.md)), and published [ENTERPRISE_SECURITY_REPORT.md](ENTERPRISE_SECURITY_REPORT.md).
+- Fixed critical security scanner defect in `scripts/security_scan.ps1`: added Git staged index inspection (`git diff --cached`), sensitive variable assignment detection (`OPENAI_API_KEY=`, `GEMINI_API_KEY=`, etc.), broadened fake/test key pattern matching (`sk-test123456789`), empirically verified commit blocking, and published [SECURITY_VALIDATION_REPORT.md](SECURITY_VALIDATION_REPORT.md).
+
+
+
 
 
 

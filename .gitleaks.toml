@@ -1,0 +1,10 @@
+# VNEXIFY Creator OS Gitleaks Security Configuration
+
+[allowlist]
+description = "Global allowlist for whitelisted documentation and third-party binaries"
+paths = [
+  '''scripts[/\\]bin''',
+  '''\.env\.example$''',
+  '''docs[/\\]GITLEAKS\.md$''',
+  '''docs[/\\]ENTERPRISE_SECURITY_REPORT\.md$'''
+]
