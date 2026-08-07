@@ -1,4 +1,6 @@
+from .auth_service import AuthService
 from .base_service import BaseService
+
 from .user_service import UserService
 from .workspace_service import WorkspaceService
 from .project_service import ProjectService

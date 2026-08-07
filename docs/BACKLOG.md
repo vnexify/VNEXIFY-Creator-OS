@@ -56,6 +56,10 @@
 | SB-026 | Sprint 13 Business Service Layer | Implement generic BaseService[ModelType] & 16 domain services (UserService, WorkspaceService, etc.), verify DI & docs/SPRINT_13_REPORT.md | High | Completed | Lead Backend Architect | SB-025 |
 | SB-027 | Sprint 14 Schema DTO Layer | Implement Pydantic v2 BaseSchema & 16 domain schema modules (User, Workspace, Content, etc.), verify validation & docs/SPRINT_14_REPORT.md | High | Completed | Lead Backend Architect | SB-026 |
 | SB-028 | Sprint 15 FastAPI REST API Layer | Implement 16 domain REST routers under /api/v1/ (users, workspaces, contents, etc.), verify OpenAPI 37 paths & docs/SPRINT_15_REPORT.md | High | Completed | Lead Backend API Architect | SB-027 |
+| SB-029 | Sprint 16 Backend Integration & Validation | Execute end-to-end architectural QA audit across 16 entity modules, generate 5 validation matrices & docs/SPRINT_16_REPORT.md | High | Completed | Principal Backend QA Architect | SB-028 |
+| SB-030 | Sprint 17 Authentication Foundation | Implement JWT Access/Refresh tokens, bcrypt password security, AuthService, 5 auth endpoints (/api/v1/auth/register, /login, /refresh, /logout, /me), security dependencies & docs/SPRINT_17_REPORT.md | High | Completed | Principal Security Architect | SB-029 |
+
+
 
 
 

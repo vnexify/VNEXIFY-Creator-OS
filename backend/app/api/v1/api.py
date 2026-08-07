@@ -1,5 +1,6 @@
 from fastapi import APIRouter
 from .health import router as health_router
+from .auth import router as auth_router
 from .users import router as users_router
 from .workspaces import router as workspaces_router
 from .projects import router as projects_router
@@ -19,8 +20,9 @@ from .system_logs import router as system_logs_router
 
 api_v1_router = APIRouter()
 
-# Include Health router
+# Include Health & Auth routers
 api_v1_router.include_router(health_router, tags=["Health"])
+api_v1_router.include_router(auth_router, prefix="/auth", tags=["Authentication"])
 
 # Include Entity routers
 api_v1_router.include_router(users_router, prefix="/users", tags=["Users"])

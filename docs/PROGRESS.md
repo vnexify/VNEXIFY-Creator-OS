@@ -48,11 +48,15 @@ This document captures the current progress and ongoing tasks for the VNEXIFY Cr
 - Created Sprint 13 Business Service Layer (`backend/app/services/`) featuring generic `BaseService[ModelType]` and 16 domain services with constructor dependency injection, verified clean instantiation and project build, and published [SPRINT_13_REPORT.md](SPRINT_13_REPORT.md)
 - Authored Sprint 14 Schema DTO Layer (`backend/app/schemas/`) featuring Pydantic v2 `BaseSchema` and 16 domain modules with 5-tier DTO suites, verified validation, ORM mode parsing, and clean project build, and published [SPRINT_14_REPORT.md](SPRINT_14_REPORT.md)
 - Created Sprint 15 FastAPI REST API Layer (`backend/app/api/`) featuring 16 domain REST routers (`/api/v1/...`), OpenAPI 37-path schema generation, dependency injection, multi-tier build & security verification, and published [SPRINT_15_REPORT.md](SPRINT_15_REPORT.md)
+- Completed Sprint 16 Backend Integration & Validation Audit featuring 5 QA validation matrices across all 16 backend entity modules, multi-tier build & security verification, and published [SPRINT_16_REPORT.md](SPRINT_16_REPORT.md)
+- Designed and implemented Sprint 17 Authentication Foundation featuring JWT Access/Refresh tokens, bcrypt password security, `AuthService`, 5 authentication REST endpoints (`/api/v1/auth/...`), security dependency injection, 42 OpenAPI paths verification, multi-stage pre-release security check, and published [SPRINT_17_REPORT.md](SPRINT_17_REPORT.md)
 
 ## In Progress
 
-- Sprint 15 FastAPI REST API Layer review and user approval before proceeding to Sprint 16
-- Preparing feature roadmap for Sprint 16 (Alembic Initial Database Migration Revision)
+- Sprint 17 Authentication Foundation review and user approval before proceeding to Sprint 18
+- Preparing feature roadmap for Sprint 18 (Authorization & Role-Based Access Control)
+
+
 
 
 
